@@ -1,0 +1,50 @@
+.inputText {
+  width: 100%;
+  border-radius: 10px;
+  padding: 0px 10px 0px 10px;
+  font-size: small;
+  text-align: center;
+  background-color: rgba(85, 102, 255, 0.7);
+  border: 2px solid rgba(33, 22, 22, 0.7);
+}
+
+.inputText:hover,
+.inputText:focus {
+  background-color: rgba(19, 93, 255, 0.423);
+}
+
+.regions {
+  height: 100px;
+  overflow-x: hidden;
+  background-color: rgb(236, 236, 237);
+  border-radius: 10px;
+  padding: 0px;
+  margin-top: 10px;
+}
+
+.regions::-webkit-scrollbar {
+  width: 0px;
+}
+
+.regions:hover {
+  height: 200px;
+}
+
+.region {
+  background-color: rgba(0, 45, 244, 0.164);
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position-x: 0px;
+  background-position-y: 0px;
+  padding: 2px;
+  margin: 10px;
+  border-radius: 15px;
+  border: solid black 2px;
+  font-size: x-small;
+}
+
+.region:not(:hover) {
+  color: green;
+  background-image: none !important;
+}
