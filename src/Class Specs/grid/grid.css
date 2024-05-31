@@ -1,0 +1,31 @@
+.Sport {
+  display: grid;
+  grid-template-columns: repeat(100% / 18, fr);
+  grid-template-rows: repeat(100% / 16, fr);
+  row-gap: 3px;
+  column-gap: 3px;
+  height: 100%;
+  width: 100%;
+}
+.Sport > div {
+  border-radius: 10px;
+  display: inline-block;
+  overflow: hidden;
+}
+.Graphs {
+  grid-column: span 14;
+  grid-row: span 12;
+  order: 0;
+  width: auto;
+  height: 100%;
+}
+.Players {
+  order: 3;
+  grid-column: span 18;
+  grid-row: span 4;
+}
+.Searches {
+  order: 2;
+  grid-column: span 4;
+  grid-row: span 12;
+}
