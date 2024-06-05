@@ -363,7 +363,7 @@ class Sport extends React.Component {
         data = this.player_main[1][val];
       }
     });
-    console.log(data);
+    //console.log(data);
     return data;
     return <>AA</>;
   }
@@ -405,10 +405,34 @@ class Sport extends React.Component {
   }
 
   player_portfo(player) {
+    console.log(player);
+    let p = player.player;
+    let d = player.statistics[0];
+    let injured = p.injured;
+    if (injured == true) {
+      injured = "True";
+    } else {
+      injured = "False";
+    }
     return (
       <>
         <div className="InnerData PlayerCard">
-          <h2> {player.player.name}</h2>
+          <div className="PlayerC">
+            <div className="base">
+              {format_string("Name", p.name)}
+              {format_string("Age", p.age)}
+              {format_string("Injured", injured)}
+              {format_string("Height / Weight", `${p.height} / ${p.weight}`)}
+              {format_string("Team", d.team.name)}
+            </div>
+            <div className="imag">{createElement("img", { src: p.photo })}</div>
+            <div className="details">
+              {format_string("Appearences", d.games.appearences)}
+              {format_string("Position", d.games.position)}
+              {format_string("Rating", d.games.rating)}
+              {format_string("Captain", d.games.captain.toString())}
+            </div>
+          </div>
         </div>
       </>
     );
@@ -416,8 +440,8 @@ class Sport extends React.Component {
 
   create_graph(vals, labels, name) {
     let names = this.format_name(name);
-    console.log(vals);
-    console.log(labels);
+    //console.log(vals);
+    //console.log(labels);
     let colors = ["#ff2211", "#111144", "#22aa11", "#aabbss"];
 
     labels.map((result, vals) => {
@@ -457,7 +481,7 @@ class Sport extends React.Component {
         <Doughnut data={datas} options={options} />
       </div>
     );
-    return <Doughnut data={datas} options={options} />;
+
     return <></>;
 
     //return createElement(Chart, { donutCenterRender: names }, "a");
@@ -516,6 +540,18 @@ function search_pattern(search, find) {
   }
 
   return info;
+}
+
+function format_string(arg, argdata) {
+  return createElement(
+    "div",
+    { className: "bdetail" },
+    createElement("p", { className: "e dk" }, arg),
+    <p>: </p>,
+    createElement("p", { className: "e" }, argdata)
+  );
+
+  return null;
 }
 
 export default Sport;

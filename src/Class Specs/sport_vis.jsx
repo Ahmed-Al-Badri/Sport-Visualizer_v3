@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import "./Player/player.css";
 import "./grid/grid.css";
 import "./grid/main.css";
 import { createElement } from "react";
