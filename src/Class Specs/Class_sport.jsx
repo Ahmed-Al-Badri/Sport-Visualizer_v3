@@ -1,9 +1,20 @@
 import React from "react";
 import { createElement } from "react";
-import axios from "axios";
-import { isEqual } from "lodash";
-import { Soccer, BasketBall } from "./class_/sports";
-import Graphs from "./class_/graphs";
+import { Chart as chartjs, ArcElement, Tooltip, Legend, Title } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
+chartjs.register(ArcElement, Tooltip, Legend, Title);
+//import { DonutCenter } from "@progress/kendo-react-charts";
+
+import {
+  Chart,
+  ChartLegend,
+  ChartSeries,
+  ChartSeriesItem,
+  ChartSeriesLabels,
+} from "@progress/kendo-react-charts";
+import { element } from "prop-types";
+import { alignPropType } from "react-bootstrap/esm/types";
 
 class Sport extends React.Component {
   //this depends on the Soccer class and Graphs
@@ -81,6 +92,14 @@ class Sport extends React.Component {
     this.formatted_tm_players = [];
 
     this.players_spec = [];
+
+    ////
+    this.player_stat = [[], []];
+
+    ////
+    this.player_main = [[], []];
+    this.check_player = "";
+
     this.load_all();
   }
   async load_all() {
@@ -216,7 +235,7 @@ class Sport extends React.Component {
   }
 
   format_team(datas) {
-    console.log(datas);
+    //console.log(datas);
     let data = createElement(
       "div",
       {
@@ -235,7 +254,7 @@ class Sport extends React.Component {
   //teams and countries
 
   Players() {
-    console.log(this.teams_player);
+    //console.log(this.teams_player);
     let found = -1;
 
     this.teams_player[0].map((result, key_) => {
@@ -246,7 +265,7 @@ class Sport extends React.Component {
 
     if (found != -1) {
       let count = this.teams_player[1][found].length;
-      console.log("s");
+      //console.log("s");
       return (
         <>
           {this.teams_player[1][found].map((result, value_) => {
@@ -307,19 +326,173 @@ class Sport extends React.Component {
     players.map((info) => {
       data.push(this.format_player(info));
     });
+
     return data;
   }
 
   format_player(player) {
+    this.player_main[0].push(player.player.id);
+    let info = this.get_static(player);
+    console.log(info);
+    this.player_main[1].push(info);
+
     return createElement("img", {
       alt: player.player.name,
       src: player.player.photo,
       className: "formatPlayer",
       onClick: (result, id_s = player.player.id) => {
         console.log(id_s + "for " + player.player.name);
+        this.get_static_p(id_s);
         //result for other.
       },
     });
+  }
+
+  get_static_p(name) {
+    this.check_player = name;
+    if (this.s_c_e == true) {
+      this.search_co_event(name);
+    }
+  }
+
+  display_ply() {
+    let data = null;
+    this.player_main[0].map((name, val) => {
+      if (this.check_player == name) {
+        console.log("found");
+        data = this.player_main[1][val];
+      }
+    });
+    console.log(data);
+    return data;
+    return <>AA</>;
+  }
+
+  get_static(player) {
+    //return <h2>aa</h2>;
+    let stat = player.statistics[0];
+    //console.log(stat);
+    let data = createElement(
+      "div",
+      { className: "MainData" },
+      this.player_portfo(player),
+      this.create_graph(
+        [stat.substitutes.in, stat.substitutes.out, stat.substitutes.bench],
+        ["In", "Out", "Bench"],
+        "Substitutes"
+      ),
+      this.create_graph(
+        [stat.shots.on, stat.shots.total - stat.shots.on],
+        ["Scored", "Mis-Score"],
+        "Goals Shot"
+      ),
+      this.create_graph(
+        [
+          stat.passes.key,
+          stat.passes.accuracy,
+          stat.passes.total - (stat.passes.key + stat.passes.accuracy),
+        ],
+        ["Key passes", "Accuracy", "Others"],
+        "Passes"
+      ),
+      this.create_graph(
+        [stat.duels.won, stat.duels.total - stat.duels.won],
+        ["Won", "Lost/Or Etc"],
+        "Duels"
+      )
+    );
+    return data;
+  }
+
+  player_portfo(player) {
+    return (
+      <>
+        <div className="InnerData PlayerCard">
+          <h2> {player.player.name}</h2>
+        </div>
+      </>
+    );
+  }
+
+  create_graph(vals, labels, name) {
+    let names = this.format_name(name);
+    console.log(vals);
+    console.log(labels);
+    let colors = ["#ff2211", "#111144", "#22aa11", "#aabbss"];
+
+    labels.map((result, vals) => {
+      colors.push(`#ff${vals + 2}${vals + 1}${vals + 1}${vals - 2}`);
+    });
+
+    let datas = {
+      labels: labels,
+      datasets: [
+        {
+          data: vals,
+          backgroundColor: colors,
+          hoverBackgroundColor: colors,
+        },
+      ],
+      text: names,
+    };
+
+    let options = {
+      legend: {
+        display: false,
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: name,
+          align: "center",
+          padding: {
+            top: "2px",
+            bottom: "2px",
+          },
+        },
+      },
+    };
+    return (
+      <div className="InnerData">
+        <Doughnut data={datas} options={options} />
+      </div>
+    );
+    return <Doughnut data={datas} options={options} />;
+    return <></>;
+
+    //return createElement(Chart, { donutCenterRender: names }, "a");
+    /*
+    let data = createElement(
+      "div",
+      { className: "InnerData" },
+      <>
+        <Chart donutCenterRender={names}>
+          <ChartSeries>
+            <ChartSeriesItem
+              type="donut"
+              data={vals}
+              categoryField="kind"
+              field="share"
+            />
+            <ChartSeriesLabels
+              color="#acb"
+              background="none"
+              content={labels}
+            />
+          </ChartSeries>
+          <ChartLegend visible={true} />
+        </Chart>
+      </>
+    );
+    */
+    /*
+    return data;
+    return <></>;
+    */
+  }
+
+  format_name(name) {
+    return <p className="formatname">name</p>;
   }
 }
 

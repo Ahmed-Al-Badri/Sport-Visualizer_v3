@@ -11,6 +11,8 @@
   border-radius: 10px;
   display: inline-block;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 .Graphs {
   grid-column: span 14;
@@ -28,4 +30,9 @@
   order: 2;
   grid-column: span 4;
   grid-row: span 12;
+}
+@media only screen and (max-width: 600px) {
+  .Sport {
+    grid-template-columns: 100%;
+  }
 }

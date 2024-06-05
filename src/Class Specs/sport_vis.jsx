@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
 import "./grid/grid.css";
+import "./grid/main.css";
 import { createElement } from "react";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
@@ -26,7 +27,7 @@ export default function Sport_vis() {
   let Countries = Sport_.search_country();
   let Teams = Sport_.Teams_search();
   let Players = Sport_.Players();
-
+  let Player_Stat = Sport_.display_ply();
   useEffect(() => {
     Sport_.search_co_event = Co_s_set;
     Sport_.s_c_e = true;
@@ -52,14 +53,18 @@ export default function Sport_vis() {
     Players = Sport_.Players();
   }, [Sport_.Select_team]);
 
+  useEffect(() => {
+    Co_s_set(0);
+    Player_Stat = Sport_.display_ply();
+  }, [Sport_.check_player]);
+
   if (loading != 0) {
     return (
       <>
         <div className="Sport">
-          <div className="Graphs">Graphs</div>
+          <div className="Graphs">{Player_Stat}</div>
           <div className="Players">
             <p className="title">Players</p>
-            {Sport_.search_yr}
             <div className="playersdis">{Players}</div>
           </div>
           <div className="Searches">

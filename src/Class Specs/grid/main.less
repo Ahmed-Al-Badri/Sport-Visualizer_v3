@@ -1,0 +1,25 @@
+.MainData {
+  display: grid;
+  height: 100%;
+  width: auto;
+  grid-column: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50% 50%;
+}
+
+.InnerData {
+  height: auto;
+  width: auto;
+  padding-top: 10px;
+}
+
+.PlayerCard {
+  grid-row: 1 / span 2;
+}
+
+@media only screen and (max-width: 600px) {
+  .MainData {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
