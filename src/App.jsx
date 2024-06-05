@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       <div className="container">
-        <div className="row NAV">
+        <div className="NAV">
           <Nav_ />
         </div>
-        <div className="row ROUTE">
+        <div className="ROUTE">
           <Route_ />
         </div>
       </div>
