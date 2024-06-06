@@ -40,6 +40,12 @@ class Sport extends React.Component {
         this.search_co_event(this.search_co);
       },
     });
+    this.search_cty = (
+      <label className="title">
+        <p className="title">Countries</p>
+        {this.search_cty}
+      </label>
+    );
 
     this.search_tms_ = createElement("input", {
       type: "text",
@@ -56,6 +62,13 @@ class Sport extends React.Component {
         }
       },
     });
+
+    this.search_tms_ = (
+      <label className="title">
+        <p className="title">Teams</p>
+        {this.search_tms_}
+      </label>
+    );
 
     this.search_yr = createElement("input", {
       type: "number",
@@ -425,7 +438,9 @@ class Sport extends React.Component {
               {format_string("Height / Weight", `${p.height} / ${p.weight}`)}
               {format_string("Team", d.team.name)}
             </div>
-            <div className="imag">{createElement("img", { src: p.photo })}</div>
+            <div className="imag">
+              {createElement("img", { src: p.photo, alt: p.name })}
+            </div>
             <div className="details">
               {format_string("Appearences", d.games.appearences)}
               {format_string("Position", d.games.position)}

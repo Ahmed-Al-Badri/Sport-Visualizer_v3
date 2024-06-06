@@ -62,6 +62,7 @@ export default function Sport_vis() {
   if (loading != 0) {
     return (
       <>
+        <h1 className="title">Soccer Players</h1>
         <div className="Sport">
           <div className="Graphs">{Player_Stat}</div>
           <div className="Players">
@@ -70,12 +71,9 @@ export default function Sport_vis() {
           </div>
           <div className="Searches">
             <div>
-              <p className="title">Countries</p>
               {Sport_.search_cty}
-
               <div className="regions">{Countries}</div>
             </div>
-            <p className="title">Teams</p>
             {Sport_.search_tms_}
             <div className="teams">{Teams}</div>
           </div>
