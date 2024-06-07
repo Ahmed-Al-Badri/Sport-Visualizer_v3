@@ -41,5 +41,10 @@
     "gh-pages": "^6.1.1",
     "vite": "^5.2.0",
     "vitest": "^1.6.0"
-  }
+  },
+  "description": "This Sport Application is design to give informations of Soccer players to users. Users are able to search teams, Or look up teams by Countries.",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
