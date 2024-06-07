@@ -290,15 +290,20 @@ class Sport extends React.Component {
     });
 
     if (found == false) {
-      this.Graphs.Team_players(name, this.year).then((result) => {
-        this.teams_player[0].push(`${name}${this.year}`);
-        this.format_players(result).then((result) => {
-          this.teams_player[1].push(result);
-          this.Select_team = `${name}`;
-          this.set_co(name);
-          console.log("done");
+      try {
+        this.Graphs.Team_players(name, this.year).then((result) => {
+          this.teams_player[0].push(`${name}${this.year}`);
+          this.format_players(result).then((result) => {
+            this.teams_player[1].push(result);
+            this.Select_team = `${name}`;
+            this.set_co(name);
+            console.log("done");
+          });
         });
-      });
+      } catch (err) {
+        console.log(err);
+        this.get_players(name);
+      }
     }
     if (this.s_c_e == true) {
       this.search_co_event(name + "1q");
