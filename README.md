@@ -18,7 +18,7 @@
     class BasketBall extends fetch_cmd{}
 ```
 
-    The first commit took care is declaring the fetch class, however it was unimplemented.
+    The first commit took care of declaring the fetch class, however it was unimplemented.
 
 ### The Second Set-Up
 
