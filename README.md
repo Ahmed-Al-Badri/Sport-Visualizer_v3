@@ -70,3 +70,7 @@
 
 - The React Navbar [Site](https://react-bootstrap.netlify.app/docs/components/navbar/)
 - Other than that, the Rouths were set up using examples given from the web-- basic code examples.
+
+### The Second Commit
+
+## TSC involved
