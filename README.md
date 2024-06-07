@@ -1,8 +1,13 @@
 # The Sport Project #themPlayers
 
 This Sport Application is design to give informations of Soccer players to users. Users are able to search teams, Or look up teams by Countries.
+[Video Link](https://pdx.zoom.us/rec/play/kn--lt3UoSyOaXH3nzmdUZydJTBVUDX_7vSRxs-CG2m6e_7dCaeK4IgMBOj1xe4qUFzoZr5Jmv9oFZBX.P7hF_Ixb3XW6hEbF?canPlayFromShare=true&from=my_recording&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fpdx.zoom.us%2Frec%2Fshare%2FNTve4IGxEeMuUUcgpHiPAidgcopnMmhsRL78cDhZZsdV_19uyBt4-qrzRX_Okn86.ivMVqO93Rv1WsHiS)
 
 ## Site delployment
+
+The Sport Api used was from a site/companie called [API-SPORTS](https://api-sports.io/)
+
+- The limits were one 100 fetches per day per one Sport, in other words, if their are 16 sports api, then it is 1600 requests.
 
 The site was delployed using vite, in which require npm. When downloading the Repository install the packets with
 
