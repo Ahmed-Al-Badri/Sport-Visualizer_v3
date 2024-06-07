@@ -297,14 +297,11 @@ class Sport extends React.Component {
           this.Select_team = `${name}`;
           this.set_co(name);
           console.log("done");
-          if (this.s_c_e == true) {
-            this.search_co_event(name + "1q");
-          }
         });
       });
     }
     if (this.s_c_e == true) {
-      this.search_co_event(name);
+      this.search_co_event(name + "1q");
     }
   }
 
