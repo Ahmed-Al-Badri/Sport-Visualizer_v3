@@ -1,5 +1,3 @@
-import React from "react";
-import { createElement } from "react";
 import axios from "axios";
 import { isEqual } from "lodash";
 
@@ -50,7 +48,6 @@ class fetch_cmd {
     }
 
     this.loaded = 1;
-    //this.config.url = data_querty;
     if (data == null) {
       data = await axios(this.config)
         .then((result) => {
@@ -58,7 +55,6 @@ class fetch_cmd {
           this.data.push([result.data.response, result.data.results]);
           this.loaded = 1;
           localStorage.setItem(this.sear_, JSON.stringify(this.search_history));
-          //
           localStorage.setItem(this.datas, JSON.stringify(this.data));
           return [result.data.response, result.data.results];
         })
@@ -73,9 +69,6 @@ class fetch_cmd {
     if (data == null) {
       data = [[], []];
     }
-    //localStorage.setItem(this.sear_, await JSON.stringify(await this.search_history));
-    //
-    //localStorage.setItem(this.datas, await JSON.stringify(await this.data));
 
     return await data;
   }
@@ -84,42 +77,36 @@ class fetch_cmd {
     this.config.url = `${this.url_base}/countries`;
     this.config.params = {};
     return await this.search_query(this.config);
-    return "11";
   }
 
   async team_py(team_name, season) {
     this.config.url = `${this.url_base}/players`;
     this.config.params = { season: season, team: team_name };
     return await this.search_query(this.config);
-    return "15";
   }
 
   async teams_region(region) {
     this.config.url = `${this.url_base}/teams`;
     this.config.params = { country: region };
     return await this.search_query(this.config);
-    return "16";
   }
 
   async team_find(name_) {
     this.config.url = `${this.url_base}/teams`;
     this.config.params = { name: name_ };
     return await this.search_query(this.config);
-    return "16";
   }
 
   async ply_stat(player_name) {
     this.config.url = `${this.url_base}/player`;
     this.config.params = { name: player_name };
     return await this.search_query(this.config);
-    return "Please Wait";
   }
 }
 
 class Soccer extends fetch_cmd {
   constructor() {
     super();
-    //this.url = "Soccer fetch url";
   }
 
   set() {
@@ -133,7 +120,6 @@ class Soccer extends fetch_cmd {
 class BasketBall extends fetch_cmd {
   constructor() {
     super();
-    //this.url = "Soccer fetch url";
   }
 
   set() {

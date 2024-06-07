@@ -1,6 +1,4 @@
 import React from "react";
-import { configDotenv } from "dotenv";
-import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./bodystyle/styles.css";
 import Nav_ from "./Nav/Nav";
