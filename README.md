@@ -2,6 +2,17 @@
 
 This Sport Application is design to give informations of Soccer players to users. Users are able to search teams, Or look up teams by Countries.
 
+## Site delployment
+
+The site was delployed using vite, in which require npm. When downloading the Repository install the packets with
+
+```JavaScript
+npm install
+npm run dev
+```
+
+In which a link will be provided.
+
 ## Project Details
 
 Below is the setup and Commits details
@@ -154,3 +165,7 @@ This Readme file was improved and added.
 A explantating of what happed in the program was written and docemented.
 
 - A small improvement was added to the Sport Load function, which allowed the function to re-run when an error occured.
+
+## Project main Issues
+
+React was not responding to components change ignore everthing, in which a new way was required to make React take attention of the elements change in UseEffect, in which a soluation became possible, instead of just changing the data, A UseState was created that just refreshed to check the Useeffect arugments in which made it possible to do dynamic work with the class, without lossing a lot of data and etc.
