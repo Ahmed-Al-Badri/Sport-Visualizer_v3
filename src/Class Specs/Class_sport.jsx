@@ -122,10 +122,13 @@ class Sport extends React.Component {
         this.Teams_region(this.ck_reg);
         setTimeout(() => {
           this.loaded = 1;
+          this.search_co = "USA";
         }, 100);
       })
       .catch((error) => {
         console.log(error);
+        this.search_co = "re-run or Load";
+        this.load_all();
       });
   }
 

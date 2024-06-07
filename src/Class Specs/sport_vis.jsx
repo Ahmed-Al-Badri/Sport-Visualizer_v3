@@ -24,6 +24,7 @@ export default function Sport_vis() {
     Sport_.s_c_e = true;
     Countries = Sport_.search_country();
     Teams = Sport_.Teams_search();
+    Sport_.search_co_event(1 + "aa");
     loading_set(1);
   }, []);
 
