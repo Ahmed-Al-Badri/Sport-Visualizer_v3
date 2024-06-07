@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>The Sport Project &num;themPlayers</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="the-sport-project-themplayers">The Sport Project #themPlayers</h1>
+<p>This Sport Application is design to give informations of Soccer players to users. Users are able to search teams, Or look up teams by Countries.</p>
+<h2 id="site-delployment">Site delployment</h2>
+<p>The site was delployed using vite, in which require npm. When downloading the Repository install the packets with</p>
+<p><a href="https://github.com/Ahmed-Al-Badri/Sport-Visualizer_v3">Repository link GitHub</a></p>
+<pre><code class="language-JavaScript">npm install
+npm run dev
+</code></pre>
+<p>In which a link will be provided.</p>
+<h2 id="project-details">Project Details</h2>
+<p>Below is the setup and Commits details</p>
+<h3 id="the-base-setup">The Base setup</h3>
+<p>In order to provide access to data all around the application and other sports from the same API, a fetch class was required to take care of that; with that, classes that use the Main fetch class, used the class as an Abstract class so that when the fetching occures the base class works for any sports that follow a similar pattern-- in other words, class abstraction, or a dynamic binding approch.</p>
+<pre><code class="language-JavaScript">    <span class="hljs-keyword">class</span> <span class="hljs-title class_">fetch_cmd</span> {}
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Soccer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">fetch_cmd</span>{
+        <span class="hljs-title function_">set</span>():{
+            <span class="hljs-comment">//Their data and urls</span>
+        }
+    }
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">BasketBall</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">fetch_cmd</span>{}
+</code></pre>
+<p>The first commit took care of declaring the fetch class, however it was unimplemented.</p>
+<h3 id="the-second-set-up">The Second Set-Up</h3>
+<p>It needed that a class took care of the fetched data, since the fetch data format is differnt than many others, a class was needed.</p>
+<pre><code class="language-JavaScript">    <span class="hljs-title class_">Graphs</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">React</span>.<span class="hljs-property">Component</span>{
+        <span class="hljs-title function_">constructor</span>(<span class="hljs-params">FetchClass</span>)
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">fetchclass</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FetchClass</span>();
+        <span class="hljs-comment">//The fetch class belongs to Soccer</span>
+        <span class="hljs-comment">//and or another/others classes</span>
+        <span class="hljs-comment">//that extend the Fetch class.</span>
+    }
+</code></pre>
+<p>The First commit Also took care of the protopye declaration.</p>
+<h3 id="the-sport-formatter">The Sport formatter</h3>
+<p>In order to take care of the fetched data and the formatted data from the API and the Graph class. A class was created to handle all changes and request from the users. That includes displaying all teams by Countries, displaying only search Countries/Teams.</p>
+<p>Other forms of handeling the data were creating data to statify the user requests to viewing the teams and their players.</p>
+<pre><code class="language-JavaScript">    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Sport</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+        <span class="hljs-title function_">constructor</span>(<span class="hljs-params">Graphs_classes</span>){
+            <span class="hljs-variable language_">this</span>.<span class="hljs-property">Graphs</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Graphs</span>_classes[<span class="hljs-number">0</span>];(<span class="hljs-title class_">Graphs</span>_classes[<span class="hljs-number">1</span>]);
+            <span class="hljs-comment">//The arguments passed into the</span>
+            <span class="hljs-comment">//Sport constructor belong to</span>
+            <span class="hljs-comment">//the Graphs class type,</span>
+            <span class="hljs-comment">//and the Fetching class type.</span>
+            <span class="hljs-comment">//In the Format of an array</span>
+            <span class="hljs-comment">//ex.*</span>
+                <span class="hljs-keyword">new</span> <span class="hljs-title class_">Sport</span>([<span class="hljs-title class_">Graphs</span>, <span class="hljs-title class_">Soccer</span>]);
+            <span class="hljs-comment">//*.ex</span>
+        }
+    }
+</code></pre>
+<h2 id="the-project-commits">The Project Commits</h2>
+<h3 id="first-commit">First Commit</h3>
+<p>The first commit helped format the entire Program, the only includes the base setup of the Navigation, and the Routing.</p>
+<p>The work done including installing fetching the graphing bootstrap libary-- or the CSS bootstrap libarys. The Librarys included CSS for the container and the navigation.</p>
+<h4 id="the-resources-used">The resources used</h4>
+<ul>
+<li>The React Navbar <a href="https://react-bootstrap.netlify.app/docs/components/navbar/">Site</a></li>
+<li>Other than that, the Routes were set up using examples given from the web-- basic code examples.</li>
+</ul>
+<h3 id="the-second-commit">The Second Commit</h3>
+<p>Name: &quot;Information is set up, except graphs&quot;.
+This Commit helped develope the Navigation, new class styles were added to format the Routes and Navigation.</p>
+<h3 id="the-third-commit">The Third Commit</h3>
+<p>Name: &quot;All data is done excepts statics&quot;.
+Statics stands for statictics, This commit helped develope home functions of the three classes, however, because of most recent changes to that date, functional prototypes were build in order to use the time given in a correct and productive way.</p>
+<p>Their isn't an exuse for using or devloping the three classes together becasue, since each one depended on the other, a fast connected was need to string and tie the data together in which made it possible to make each class productive without running into the issue of missused function and unthere wanted class home functions. In other words, it is possible to share the work, however the work is a water fall pattern with leak at the bottom, what this means is that the main class Sport requires the graphs function, and the graphs function are not limited so they can increase and increase more on the request of the Sport class, moreover, what the bottoms leaks stand for is that the fetch class does not really depend on the upper system but needs to do the basic it work with the api, it stills need to communicate with the other classes, but not as much as Graphs, moreover, the some of the Graphs home function do not depend on what the Main Sport class wantes as it can build any home function that will make it easier for it to do the work needed.</p>
+<h3 id="the-forth-commit">The Forth Commit</h3>
+<p>Name: &quot;Added Styles so that it takes casre of screen size change&quot;
+This commit makes it so that when the screen size is differnt than the average large screen, it formats some elements to take a form to make it more readibly to the users, readibly, visuable, and comfortable on the element placements.</p>
+<p>It also made it so that player are display from a stored varible in the soccer Sport visulizer function</p>
+<h3 id="the-fifth-commit">The Fifth Commit</h3>
+<p>Name: &quot;All work regarding the Structure of the page has been done, the only...&quot;
+This commit changes the formating style of the grid into a grid area, this way the data get formatted well and or in a way that is changable in later implementations.</p>
+<h3 id="the-sixth-commit-merge-pull-request">The Sixth Commit-Merge pull request</h3>
+<p>Name: Brance merge: &quot;Graphs&quot;
+This commit added the players statictics page; which allowed the player information to be displayed in a pattern that is easy on the displacment.
+It also added a section into the Sport Vis function to allow the data to be displayed correctly.</p>
+<h4 id="the-reviews">The Reviews</h4>
+<p>Since their was nobody to review the work done, it was done by me, in which give me time to reflect on the changes that were done.</p>
+<p>The reviews were mostly about - Adding styles will make the program more fun to navigate. - The removal of unused empty classes on elements - A review of the unused imports - A way to keep track of what was used to keep track of the naming given to varibles - The removal of wanted code - Placement of comments on unfinshed class home function so that when being worked on, it is clear what is wanted or missing. - Using CSS grid areas as an option instead of grid sort columns and rows.</p>
+<h3 id="seventh-commit">Seventh Commit</h3>
+<p>Name: &quot;The data is formatted for the player card, with that the grid displa...&quot;, --display
+This commit formatted the data in which allowed the users to view the player stats and their donuts graphs.</p>
+<p>It also removed commented code and edited a CSS style grid from a row grid into a column grid. With the addition of Screen change of 1000px.</p>
+<h4 id="the-resources--chart-2-react">The Resources / Chart 2 react</h4>
+<ul>
+<li>The main resource used was React Chart JS two/2</li>
+<li><a href="https://react-chartjs-2.js.org/">react-chartjs-2</a> provided the required resources and graphs elements to display data in a possible way that made it easier to use than most to little libaryies.</li>
+</ul>
+<h3 id="the-eight-commit---eleventh-commit-merge">The Eight Commit - Eleventh Commit-Merge</h3>
+<p>Names: From commit &quot;Improved the layout by...&quot;-more, to the merge request from CleanUp brance.
+These commits took care of the usablity of the program, instead of calling events twice, With that, some elements do not refresh on buttons requests and users, in order to avoid that, meatures were took to handle that type of error.</p>
+<h4 id="pull-request-comments-before-merge">Pull Request Comments before Merge</h4>
+<ul>
+<li>Review of some code refresh-ability, in which hepled define what occured or seemed to be occuring.</li>
+<li>Review of deleted, in which helped the commiter review some of their work.</li>
+<li>An issue of why some comment out entire code was deleted.
+<ul>
+<li>The response was that it required another form of subscriptions or key was needed to access the current graphs and or charts.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-twelf-commit-to-the-thridteens-merge-commit">The Twelf Commit to the Thridteens Merge-Commit</h3>
+<p>Name: &quot;Added test ...&quot;--more, to the Pull/Merge request From TestsImplementation branch.
+This request added tests to test out the correctness of the search pattern function, since it is not a home to any class functions; it was easier to test out without having to implemet class tests.</p>
+<ul>
+<li>Class tests are usefull however it requires a time use test, it is doable, but not required for this small simple setup.</li>
+</ul>
+<h4 id="the-comments-regarding-the-merge">The Comments regarding the merge</h4>
+<ul>
+<li>Since two seperate tests were done, one has a true expected arguemnt and the other false.
+<ul>
+<li>Adding more test that fail and work was suggest to test the power/capiablity of the function.
+<ul>
+<li>Response was true, but following the algorthms of the creating function, it is likely to do the correct thing becasue their isn't any outside factors being involved.</li>
+</ul>
+</li>
+<li>Another was to handle inccorect data being passed.
+<ul>
+<li>Response was true, but basic JavaScript could be avoided and or the use of try-catch could to prevent errors-- this could prevent the user from knowing what happing if a response was not returned; however TypeScript provies details that enable data to be passed correctly.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-last-commits-from-read-me--and-newer">The last Commits from &quot;Read me ..&quot; and Newer</h3>
+<p>This Readme file was improved and added.
+A explantating of what happed in the program was written and docemented.</p>
+<ul>
+<li>A small improvement was added to the Sport Load function, which allowed the function to re-run when an error occured.</li>
+</ul>
+<h2 id="project-main-issues">Project main Issues</h2>
+<p>React was not responding to components change ignore everthing, in which a new way was required to make React take attention of the elements change in UseEffect, in which a soluation became possible, instead of just changing the data, A UseState was created that just refreshed to check the Useeffect arugments in which made it possible to do dynamic work with the class, without lossing a lot of data and etc.</p>
+
+            
+            
+        </body>
+        </html>
