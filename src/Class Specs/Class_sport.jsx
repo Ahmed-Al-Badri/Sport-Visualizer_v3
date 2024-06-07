@@ -504,3 +504,4 @@ function format_string(arg, argdata) {
 }
 
 export default Sport;
+export { search_pattern };
