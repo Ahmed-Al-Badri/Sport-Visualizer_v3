@@ -4,6 +4,8 @@ This Sport Application is design to give informations of Soccer players to users
 
 ## Project Details
 
+Below is the setup and Commits details
+
 ### The Base setup
 
 In order to provide access to data all around the application and other sports from the same API, a fetch class was required to take care of that; with that, classes that use the Main fetch class, used the class as an Abstract class so that when the fetching occures the base class works for any sports that follow a similar pattern-- in other words, class abstraction, or a dynamic binding approch.
@@ -18,11 +20,11 @@ In order to provide access to data all around the application and other sports f
     class BasketBall extends fetch_cmd{}
 ```
 
-    The first commit took care of declaring the fetch class, however it was unimplemented.
+The first commit took care of declaring the fetch class, however it was unimplemented.
 
 ### The Second Set-Up
 
-    It needed that a class took care of the fetched data, since the fetch data format is differnt than many others, a class was needed.
+It needed that a class took care of the fetched data, since the fetch data format is differnt than many others, a class was needed.
 
 ```JavaScript
     Graphs extends React.Component{
@@ -95,7 +97,7 @@ It also made it so that player are display from a stored varible in the soccer S
 Name: "All work regarding the Structure of the page has been done, the only..."
 This commit changes the formating style of the grid into a grid area, this way the data get formatted well and or in a way that is changable in later implementations.
 
-### The Sixth Commit-Merge pull request.
+### The Sixth Commit-Merge pull request
 
 Name: Brance merge: "Graphs"
 This commit added the players statictics page; which allowed the player information to be displayed in a pattern that is easy on the displacment.
@@ -138,7 +140,7 @@ This request added tests to test out the correctness of the search pattern funct
 
 - Class tests are usefull however it requires a time use test, it is doable, but not required for this small simple setup.
 
-#### The Comments regarding the merge.
+#### The Comments regarding the merge
 
 - Since two seperate tests were done, one has a true expected arguemnt and the other false.
   - Adding more test that fail and work was suggest to test the power/capiablity of the function.
