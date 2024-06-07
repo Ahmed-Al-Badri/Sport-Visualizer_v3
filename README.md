@@ -1,12 +1,12 @@
 # The Sport Project #themPlayers
 
-    This Sport Application is design to give informations of Soccer players to users. Users are able to search teams, Or look up teams by Countries.
+This Sport Application is design to give informations of Soccer players to users. Users are able to search teams, Or look up teams by Countries.
 
 ## Project Details
 
 ### The Base setup
 
-    In order to provide access to data all around the application and other sports from the same API, a fetch class was required to take care of that; with that, classes that use the Main fetch class, used the class as an Abstract class so that when the fetching occures the base class works for any sports that follow a similar pattern-- in other words, class abstraction, or a dynamic binding approch.
+In order to provide access to data all around the application and other sports from the same API, a fetch class was required to take care of that; with that, classes that use the Main fetch class, used the class as an Abstract class so that when the fetching occures the base class works for any sports that follow a similar pattern-- in other words, class abstraction, or a dynamic binding approch.
 
 ```JavaScript
     class fetch_cmd {}
@@ -34,13 +34,13 @@
     }
 ```
 
-    The First commit Also took care of the protopye declaration.
+The First commit Also took care of the protopye declaration.
 
 ### The Sport formatter
 
-    In order to take care of the fetched data and the formatted data from the API and the Graph class. A class was created to handle all changes and request from the users. That includes displaying all teams by Countries, displaying only search Countries/Teams.
+In order to take care of the fetched data and the formatted data from the API and the Graph class. A class was created to handle all changes and request from the users. That includes displaying all teams by Countries, displaying only search Countries/Teams.
 
-    Other forms of handeling the data were creating data to statify the user requests to viewing the teams and their players.
+Other forms of handeling the data were creating data to statify the user requests to viewing the teams and their players.
 
 ```JavaScript
     class Sport extends React.Component {
@@ -62,9 +62,9 @@
 
 ### First Commit
 
-    The first commit helped format the entire Program, the only includes the base setup of the Navigation, and the Routing.
+The first commit helped format the entire Program, the only includes the base setup of the Navigation, and the Routing.
 
-    The work done including installing fetching the graphing bootstrap libary-- or the CSS bootstrap libarys. The Librarys included CSS for the container and the navigation.
+The work done including installing fetching the graphing bootstrap libary-- or the CSS bootstrap libarys. The Librarys included CSS for the container and the navigation.
 
 #### The resources used
 
@@ -73,53 +73,46 @@
 
 ### The Second Commit
 
-    Name: "Information is set up, except graphs".
-    This Commit helped develope the Navigation, new class styles were added to format the Routes and Navigation.
+Name: "Information is set up, except graphs".
+This Commit helped develope the Navigation, new class styles were added to format the Routes and Navigation.
 
 ### The Third Commit
 
-    Name: "All data is done excepts statics".
-    Statics stands for statictics, This commit helped develope home functions of the three classes, however, because of most recent changes to that date, functional prototypes were build in order to use the time given in a correct and productive way.
+Name: "All data is done excepts statics".
+Statics stands for statictics, This commit helped develope home functions of the three classes, however, because of most recent changes to that date, functional prototypes were build in order to use the time given in a correct and productive way.
 
-    Their isn't an exuse for using or devloping the three classes together becasue, since each one depended on the other, a fast connected was need to string and tie the data together in which made it possible to make each class productive without running into the issue of missused function and unthere wanted class home functions. In other words, it is possible to share the work, however the work is a water fall pattern with leak at the bottom, what this means is that the main class Sport requires the graphs function, and the graphs function are not limited so they can increase and increase more on the request of the Sport class, moreover, what the bottoms leaks stand for is that the fetch class does not really depend on the upper system but needs to do the basic it work with the api, it stills need to communicate with the other classes, but not as much as Graphs, moreover, the some of the Graphs home function do not depend on what the Main Sport class wantes as it can build any home function that will make it easier for it to do the work needed.
+Their isn't an exuse for using or devloping the three classes together becasue, since each one depended on the other, a fast connected was need to string and tie the data together in which made it possible to make each class productive without running into the issue of missused function and unthere wanted class home functions. In other words, it is possible to share the work, however the work is a water fall pattern with leak at the bottom, what this means is that the main class Sport requires the graphs function, and the graphs function are not limited so they can increase and increase more on the request of the Sport class, moreover, what the bottoms leaks stand for is that the fetch class does not really depend on the upper system but needs to do the basic it work with the api, it stills need to communicate with the other classes, but not as much as Graphs, moreover, the some of the Graphs home function do not depend on what the Main Sport class wantes as it can build any home function that will make it easier for it to do the work needed.
 
 ### The Forth Commit
 
-    Name: "Added Styles so that it takes casre of screen size change"
-    This commit makes it so that when the screen size is differnt than the average large screen, it formats some elements to take a form to make it more readibly to the users, readibly, visuable, and comfortable on the element placements.
+Name: "Added Styles so that it takes casre of screen size change"
+This commit makes it so that when the screen size is differnt than the average large screen, it formats some elements to take a form to make it more readibly to the users, readibly, visuable, and comfortable on the element placements.
 
-    It also made it so that player are display from a stored varible in the soccer Sport visulizer function
+It also made it so that player are display from a stored varible in the soccer Sport visulizer function
 
 ### The Fifth Commit
 
-    Name: "All work regarding the Structure of the page has been done, the only..."
-    This commit changes the formating style of the grid into a grid area, this way the data get formatted well and or in a way that is changable in later implementations.
+Name: "All work regarding the Structure of the page has been done, the only..."
+This commit changes the formating style of the grid into a grid area, this way the data get formatted well and or in a way that is changable in later implementations.
 
 ### The Sixth Commit-Merge pull request.
 
-    Name: Brance merge: "Graphs"
-    This commit added the players statictics page; which allowed the player information to be displayed in a pattern that is easy on the displacment.
-    It also added a section into the Sport Vis function to allow the data to be displayed correctly.
+Name: Brance merge: "Graphs"
+This commit added the players statictics page; which allowed the player information to be displayed in a pattern that is easy on the displacment.
+It also added a section into the Sport Vis function to allow the data to be displayed correctly.
 
 #### The Reviews
 
-    Since their was nobody to review the work done, it was done by me, in which give me time to reflect on the changes that were done.
+Since their was nobody to review the work done, it was done by me, in which give me time to reflect on the changes that were done.
 
-    The reviews were mostly about
-        -   Adding styles will make the program more fun to navigate.
-        -   The removal of unused empty classes on elements
-        -   A review of the unused imports
-        -   A way to keep track of what was used to keep track of the naming given to varibles
-        -   The removal of wanted code
-        -   Placement of comments on unfinshed class home function so that when being worked on, it is clear what is wanted or missing.
-        -   Using CSS grid areas as an option instead of grid sort columns and rows.
+The reviews were mostly about - Adding styles will make the program more fun to navigate. - The removal of unused empty classes on elements - A review of the unused imports - A way to keep track of what was used to keep track of the naming given to varibles - The removal of wanted code - Placement of comments on unfinshed class home function so that when being worked on, it is clear what is wanted or missing. - Using CSS grid areas as an option instead of grid sort columns and rows.
 
 ### Seventh Commit
 
-    Name: "The data is formatted for the player card, with that the grid displa...", --display
-    This commit formatted the data in which allowed the users to view the player stats and their donuts graphs.
+Name: "The data is formatted for the player card, with that the grid displa...", --display
+This commit formatted the data in which allowed the users to view the player stats and their donuts graphs.
 
-    It also removed commented code and edited a CSS style grid from a row grid into a column grid. With the addition of Screen change of 1000px.
+It also removed commented code and edited a CSS style grid from a row grid into a column grid. With the addition of Screen change of 1000px.
 
 #### The Resources / Chart 2 react
 
@@ -128,8 +121,8 @@
 
 ### The Eight Commit - Eleventh Commit-Merge
 
-    Names: From commit "Improved the layout by..."-more, to the merge request from CleanUp brance.
-    These commits took care of the usablity of the program, instead of calling events twice, With that, some elements do not refresh on buttons requests and users, in order to avoid that, meatures were took to handle that type of error.
+Names: From commit "Improved the layout by..."-more, to the merge request from CleanUp brance.
+These commits took care of the usablity of the program, instead of calling events twice, With that, some elements do not refresh on buttons requests and users, in order to avoid that, meatures were took to handle that type of error.
 
 #### Pull Request Comments before Merge
 
@@ -140,8 +133,8 @@
 
 ### The Twelf Commit to the Thridteens Merge-Commit
 
-    Name: "Added test ..."--more, to the Pull/Merge request From TestsImplementation branch.
-    This request added tests to test out the correctness of the search pattern function, since it is not a home to any class functions; it was easier to test out without having to implemet class tests.
+Name: "Added test ..."--more, to the Pull/Merge request From TestsImplementation branch.
+This request added tests to test out the correctness of the search pattern function, since it is not a home to any class functions; it was easier to test out without having to implemet class tests.
 
 - Class tests are usefull however it requires a time use test, it is doable, but not required for this small simple setup.
 
@@ -155,9 +148,7 @@
 
 ### The last Commits from "Read me .." and Newer
 
-    This Readme file was improved and added.
-    A explantating of what happed in the program was written and docemented.
+This Readme file was improved and added.
+A explantating of what happed in the program was written and docemented.
 
 - A small improvement was added to the Sport Load function, which allowed the function to re-run when an error occured.
-
-## TSC involved
