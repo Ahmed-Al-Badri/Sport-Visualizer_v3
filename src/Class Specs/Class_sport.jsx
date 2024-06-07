@@ -4,8 +4,8 @@ import { Chart as chartjs, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 chartjs.register(ArcElement, Tooltip, Legend, Title);
-//import { DonutCenter } from "@progress/kendo-react-charts";
 
+//This is not used
 import {
   Chart,
   ChartLegend,
@@ -15,6 +15,7 @@ import {
 } from "@progress/kendo-react-charts";
 import { element } from "prop-types";
 import { alignPropType } from "react-bootstrap/esm/types";
+//
 
 class Sport extends React.Component {
   //this depends on the Soccer class and Graphs
@@ -29,7 +30,6 @@ class Sport extends React.Component {
     this.ck_reg = "";
     this.search_tms = "";
 
-    //
     this.s_c_e = false;
     this.search_co_event = null;
     this.search_cty = createElement("input", {
@@ -84,8 +84,6 @@ class Sport extends React.Component {
       },
     });
 
-    //
-
     this.search_co = this.search_cty.props.value || "";
 
     this.countries_searched = [];
@@ -106,19 +104,15 @@ class Sport extends React.Component {
 
     this.players_spec = [];
 
-    ////
     this.player_stat = [[], []];
 
-    ////
     this.player_main = [[], []];
     this.check_player = "";
 
     this.load_all();
   }
   async load_all() {
-    //this.data_two();
     this.loaded = 0;
-
     this.search_co = this.search_cty.props.value || "";
     await this.Graphs.Location()
       .then((result) => {
@@ -126,16 +120,11 @@ class Sport extends React.Component {
         this.format_rgs();
         this.ck_reg = "USA";
         this.Teams_region(this.ck_reg);
-        //this.tm_ld = 'USA';
-        //this.Team_dis();
-        //this.countries = this.search_country();
-        //this.tm_save = this.teams_dis();
         setTimeout(() => {
           this.loaded = 1;
         }, 100);
       })
       .catch((error) => {
-        //this.loaded = 0;
         console.log(error);
       });
   }
@@ -156,13 +145,10 @@ class Sport extends React.Component {
           `${data.name}`
         )
       );
-      //console.log(this.formatted_reg[loca].props.children);
     });
   }
 
   search_country() {
-    //return createElement("h2", {}, "ABS");
-    //return this.formatted_reg[0];
     return (
       <>
         {" "}
@@ -201,7 +187,6 @@ class Sport extends React.Component {
     });
 
     if (found == false) {
-      //
       this.Graphs.Teams_region(search).then((results) => {
         this.format_teams(results);
         this.tm_ld = search;
@@ -209,15 +194,13 @@ class Sport extends React.Component {
         if (this.s_c_e) {
           this.search_co_event(search);
         }
-      }); //
+      });
     }
   }
 
   async search_team_dot(name) {
-    //enter
     let data = null;
     let found = false;
-    //this.Graphs.Team_find(name)
     this.all_teams_ft.map((result) => {
       if (result.props.children == name) {
         found = true;
@@ -228,7 +211,6 @@ class Sport extends React.Component {
       this.format_teams(data);
       this.tm_ld = "ffs" + name;
       this.search_co_event(this.tm_ld);
-      //  this.all_teams_ft.push this.Graphs.Team_find(name);
     }
   }
 
@@ -248,7 +230,6 @@ class Sport extends React.Component {
   }
 
   format_team(datas) {
-    //console.log(datas);
     let data = createElement(
       "div",
       {
@@ -264,10 +245,8 @@ class Sport extends React.Component {
     this.all_teams_ft.push(data);
     return data;
   }
-  //teams and countries
 
   Players() {
-    //console.log(this.teams_player);
     let found = -1;
 
     this.teams_player[0].map((result, key_) => {
@@ -278,7 +257,6 @@ class Sport extends React.Component {
 
     if (found != -1) {
       let count = this.teams_player[1][found].length;
-      //console.log("s");
       return (
         <>
           {this.teams_player[1][found].map((result, value_) => {
@@ -313,18 +291,17 @@ class Sport extends React.Component {
 
     if (found == false) {
       this.Graphs.Team_players(name, this.year).then((result) => {
-        //console.log(result);
         this.teams_player[0].push(`${name}${this.year}`);
-        data = this.format_players(result);
-        this.teams_player[1].push(data);
-        this.Select_team = `${name}`;
-        this.set_co(this.Select_team);
-        console.log("done");
+        this.format_players(result).then((result) => {
+          this.teams_player[1].push(result);
+          this.Select_team = `${name}`;
+          this.set_co(name);
+          console.log("done");
+        });
       });
-    } else {
-      if (this.s_c_e == true) {
-        this.search_co_event(name);
-      }
+    }
+    if (this.s_c_e == true) {
+      this.search_co_event(name + "1q");
     }
   }
 
@@ -334,29 +311,28 @@ class Sport extends React.Component {
     }
   }
 
-  format_players(players) {
+  async format_players(players) {
     let data = [];
     players.map((info) => {
       data.push(this.format_player(info));
     });
 
-    return data;
+    return await data;
   }
 
   format_player(player) {
     this.player_main[0].push(player.player.id);
     let info = this.get_static(player);
-    console.log(info);
     this.player_main[1].push(info);
 
     return createElement("img", {
+      key: player.player.photo.toString(),
       alt: player.player.name,
       src: player.player.photo,
       className: "formatPlayer",
       onClick: (result, id_s = player.player.id) => {
         console.log(id_s + "for " + player.player.name);
         this.get_static_p(id_s);
-        //result for other.
       },
     });
   }
@@ -372,19 +348,14 @@ class Sport extends React.Component {
     let data = null;
     this.player_main[0].map((name, val) => {
       if (this.check_player == name) {
-        console.log("found");
         data = this.player_main[1][val];
       }
     });
-    //console.log(data);
     return data;
-    return <>AA</>;
   }
 
   get_static(player) {
-    //return <h2>aa</h2>;
     let stat = player.statistics[0];
-    //console.log(stat);
     let data = createElement(
       "div",
       { className: "MainData" },
@@ -418,7 +389,6 @@ class Sport extends React.Component {
   }
 
   player_portfo(player) {
-    console.log(player);
     let p = player.player;
     let d = player.statistics[0];
     let injured = p.injured;
@@ -455,8 +425,6 @@ class Sport extends React.Component {
 
   create_graph(vals, labels, name) {
     let names = this.format_name(name);
-    //console.log(vals);
-    //console.log(labels);
     let colors = ["#ff2211", "#111144", "#22aa11", "#aabbss"];
 
     labels.map((result, vals) => {
@@ -496,38 +464,6 @@ class Sport extends React.Component {
         <Doughnut data={datas} options={options} />
       </div>
     );
-
-    return <></>;
-
-    //return createElement(Chart, { donutCenterRender: names }, "a");
-    /*
-    let data = createElement(
-      "div",
-      { className: "InnerData" },
-      <>
-        <Chart donutCenterRender={names}>
-          <ChartSeries>
-            <ChartSeriesItem
-              type="donut"
-              data={vals}
-              categoryField="kind"
-              field="share"
-            />
-            <ChartSeriesLabels
-              color="#acb"
-              background="none"
-              content={labels}
-            />
-          </ChartSeries>
-          <ChartLegend visible={true} />
-        </Chart>
-      </>
-    );
-    */
-    /*
-    return data;
-    return <></>;
-    */
   }
 
   format_name(name) {
@@ -565,10 +501,6 @@ function format_string(arg, argdata) {
     <p>: </p>,
     createElement("p", { className: "e" }, argdata)
   );
-
-  return null;
 }
 
 export default Sport;
-
-//export { Soccer, Graphs, BasketBall };
