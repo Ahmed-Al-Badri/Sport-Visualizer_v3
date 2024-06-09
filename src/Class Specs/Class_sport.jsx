@@ -97,7 +97,7 @@ class Sport extends React.Component {
 
     this.year = "2022";
     this.Select_team = "";
-    this.teams_player = [[], []];
+    this.teams_player = [];
     this.teams_py_format = [];
 
     this.formatted_tm_players = [];
@@ -252,18 +252,17 @@ class Sport extends React.Component {
 
   Players() {
     let found = -1;
-
-    this.teams_player[0].map((result, key_) => {
-      if (result == `${this.Select_team}${this.year}`) {
+    this.teams_player.map((result, key_) => {
+      if (result[0] == `${this.Select_team}${this.year}`) {
         found = key_;
       }
     });
 
     if (found != -1) {
-      let count = this.teams_player[1][found].length;
+      let count = this.teams_player[found][1].length;
       return (
         <>
-          {this.teams_player[1][found].map((result, value_) => {
+          {this.teams_player[found][1].map((result, value_) => {
             return (
               <div
                 className="data"
@@ -287,10 +286,8 @@ class Sport extends React.Component {
   get_players(name) {
     let data = null;
     let found = false;
-    this.teams_player[0].map((result) => {
-      if (result == `${name}${this.year}`) {
-        console.log(name);
-        console.log("Found");
+    this.teams_player.map((result) => {
+      if (result[0] == `${name}${this.year}`) {
         found = true;
       }
     });
@@ -298,12 +295,9 @@ class Sport extends React.Component {
     if (found == false) {
       try {
         this.Graphs.Team_players(name, this.year).then((result) => {
-          this.teams_player[0].push(`${name}${this.year}`);
           this.format_players(result).then((result) => {
-            this.teams_player[1].push(result);
+            this.teams_player.push([`${name}${this.year}`, result]);
             this.Select_team = `${name}`;
-            //this.set_co(name + "1qs");
-            console.log("done");
             setTimeout(() => {
               this.Select_team = name;
               this.get_players(name);

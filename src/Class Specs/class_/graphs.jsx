@@ -94,7 +94,7 @@ class Graphs extends React.Component {
     }
 
     found = await this.fetch_cls.team_py(Name, year);
-    found = this.form_into_one(found);
+    found = await this.form_into_one(found);
     this.tm_and_pyers.push(Name);
     this.saved_pyer.push(found);
     return found;
