@@ -25,6 +25,7 @@ export default function Sport_vis() {
     setTimeout(() => {
       Countries = Sport_.search_country();
       Teams = Sport_.Teams_search();
+      Sport_.search_co_event(1 + "aas");
     }, 1000);
     Sport_.search_co_event(1 + "aa");
     loading_set(1);
