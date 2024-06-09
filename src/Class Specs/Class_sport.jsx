@@ -289,6 +289,8 @@ class Sport extends React.Component {
     let found = false;
     this.teams_player[0].map((result) => {
       if (result == `${name}${this.year}`) {
+        console.log(name);
+        console.log("Found");
         found = true;
       }
     });
@@ -303,6 +305,7 @@ class Sport extends React.Component {
             //this.set_co(name + "1qs");
             console.log("done");
             setTimeout(() => {
+              this.Select_team = name;
               this.get_players(name);
             }, 500);
           });
@@ -312,7 +315,7 @@ class Sport extends React.Component {
         this.get_players(name);
       }
     }
-    if (this.s_c_e == true) {
+    if (this.s_c_e == true && found == true) {
       this.state = <></>;
       this.search_co_event(name + "1q");
     }
