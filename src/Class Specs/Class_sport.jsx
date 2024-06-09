@@ -300,9 +300,11 @@ class Sport extends React.Component {
           this.format_players(result).then((result) => {
             this.teams_player[1].push(result);
             this.Select_team = `${name}`;
-            this.set_co(name + "1qs");
+            //this.set_co(name + "1qs");
             console.log("done");
-            //this.get_players(name);
+            setTimeout(() => {
+              this.get_players(name);
+            }, 500);
           });
         });
       } catch (err) {
