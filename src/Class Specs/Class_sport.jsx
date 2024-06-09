@@ -300,8 +300,9 @@ class Sport extends React.Component {
           this.format_players(result).then((result) => {
             this.teams_player[1].push(result);
             this.Select_team = `${name}`;
-            this.set_co(name);
+            this.set_co(name + "1qs");
             console.log("done");
+            //this.get_players(name);
           });
         });
       } catch (err) {
@@ -310,7 +311,7 @@ class Sport extends React.Component {
       }
     }
     if (this.s_c_e == true) {
-      this.forceUpdate();
+      this.state = <></>;
       this.search_co_event(name + "1q");
     }
   }

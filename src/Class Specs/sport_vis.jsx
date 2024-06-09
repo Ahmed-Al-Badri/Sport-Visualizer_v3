@@ -22,8 +22,10 @@ export default function Sport_vis() {
   useEffect(() => {
     Sport_.search_co_event = Co_s_set;
     Sport_.s_c_e = true;
-    Countries = Sport_.search_country();
-    Teams = Sport_.Teams_search();
+    setTimeout(() => {
+      Countries = Sport_.search_country();
+      Teams = Sport_.Teams_search();
+    }, 1000);
     Sport_.search_co_event(1 + "aa");
     loading_set(1);
   }, []);
