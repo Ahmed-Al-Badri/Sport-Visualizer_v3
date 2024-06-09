@@ -310,6 +310,7 @@ class Sport extends React.Component {
       }
     }
     if (this.s_c_e == true) {
+      this.forceUpdate();
       this.search_co_event(name + "1q");
     }
   }
