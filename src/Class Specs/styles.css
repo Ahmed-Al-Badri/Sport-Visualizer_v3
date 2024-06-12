@@ -16,7 +16,7 @@
   height: auto;
   max-height: 20vh;
   overflow-x: hidden;
-  background-color: #ececed;
+  background-color: rgba(205, 205, 240, 0.653);
   border-radius: 10px;
   padding: 0px;
   margin-top: 10px;
@@ -65,7 +65,7 @@
 .teams {
   max-height: 20vh;
   overflow-x: hidden;
-  background-color: #ececed;
+  background-color: rgba(205, 205, 240, 0.653);
   border-radius: 10px;
   padding: 0px;
   margin-top: 10px;
