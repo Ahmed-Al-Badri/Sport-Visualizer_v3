@@ -31,7 +31,7 @@ export default class WhiteDoD {
     this.stp = setInterval(() => {
       this.frame();
       //requestAnimationFrame(this.frame);
-    }, 50);
+    }, 25);
   }
 
   stop() {
@@ -110,7 +110,7 @@ class DoD {
     this.direction = Math.floor(2.0 * Math.PI * Math.random());
     this.loop = setInterval(() => {
       this.move();
-    }, 50);
+    }, 25);
   }
 
   move() {
